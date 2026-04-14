@@ -139,12 +139,6 @@
       "category": "concepts"
     },
     {
-      "id": "指数基金",
-      "name": "指数基金",
-      "type": "concept",
-      "category": "concepts"
-    },
-    {
       "id": "收购",
       "name": "收购",
       "type": "concept",
@@ -165,12 +159,6 @@
     {
       "id": "特许经营权",
       "name": "特许经营权",
-      "type": "concept",
-      "category": "concepts"
-    },
-    {
-      "id": "现金流",
-      "name": "现金流",
       "type": "concept",
       "category": "concepts"
     },
@@ -237,12 +225,6 @@
     {
       "id": "航空业",
       "name": "航空业",
-      "type": "concept",
-      "category": "concepts"
-    },
-    {
-      "id": "薪酬与激励",
-      "name": "薪酬与激励",
       "type": "concept",
       "category": "concepts"
     },
@@ -445,12 +427,6 @@
       "category": "companies"
     },
     {
-      "id": "好市多",
-      "name": "好市多",
-      "type": "company",
-      "category": "companies"
-    },
-    {
       "id": "威利家居",
       "name": "威利家居",
       "type": "company",
@@ -459,12 +435,6 @@
     {
       "id": "威瑞森通讯",
       "name": "威瑞森通讯",
-      "type": "company",
-      "category": "companies"
-    },
-    {
-      "id": "宝洁",
-      "name": "宝洁",
       "type": "company",
       "category": "companies"
     },
@@ -631,12 +601,6 @@
       "category": "companies"
     },
     {
-      "id": "迪士尼",
-      "name": "迪士尼",
-      "type": "company",
-      "category": "companies"
-    },
-    {
       "id": "通用再保险",
       "name": "通用再保险",
       "type": "company",
@@ -651,12 +615,6 @@
     {
       "id": "通用电气",
       "name": "通用电气",
-      "type": "company",
-      "category": "companies"
-    },
-    {
-      "id": "金霸王",
-      "name": "金霸王",
       "type": "company",
       "category": "companies"
     },
@@ -709,32 +667,8 @@
       "category": "people"
     },
     {
-      "id": "托尼·奈斯利",
-      "name": "托尼·奈斯利",
-      "type": "person",
-      "category": "people"
-    },
-    {
       "id": "托德·库姆斯",
       "name": "托德·库姆斯",
-      "type": "person",
-      "category": "people"
-    },
-    {
-      "id": "斯坦·利普西",
-      "name": "斯坦·利普西",
-      "type": "person",
-      "category": "people"
-    },
-    {
-      "id": "杰克·林沃尔特",
-      "name": "杰克·林沃尔特",
-      "type": "person",
-      "category": "people"
-    },
-    {
-      "id": "查克·哈金斯",
-      "name": "查克·哈金斯",
       "type": "person",
       "category": "people"
     },
@@ -751,44 +685,14 @@
       "category": "people"
     },
     {
-      "id": "比尔·斯奈德",
-      "name": "比尔·斯奈德",
-      "type": "person",
-      "category": "people"
-    },
-    {
-      "id": "汤姆·墨菲",
-      "name": "汤姆·墨菲",
-      "type": "person",
-      "category": "people"
-    },
-    {
       "id": "泰德·韦施勒",
       "name": "泰德·韦施勒",
       "type": "person",
       "category": "people"
     },
     {
-      "id": "肯·蔡斯",
-      "name": "肯·蔡斯",
-      "type": "person",
-      "category": "people"
-    },
-    {
       "id": "芒格",
       "name": "芒格",
-      "type": "person",
-      "category": "people"
-    },
-    {
-      "id": "菲尔·利舍",
-      "name": "菲尔·利舍",
-      "type": "person",
-      "category": "people"
-    },
-    {
-      "id": "路易·辛普森",
-      "name": "路易·辛普森",
       "type": "person",
       "category": "people"
     },
@@ -3003,26 +2907,6 @@
       "target": "长期持有"
     },
     {
-      "source": "指数基金",
-      "target": "债券"
-    },
-    {
-      "source": "指数基金",
-      "target": "长期持有"
-    },
-    {
-      "source": "指数基金",
-      "target": "复利"
-    },
-    {
-      "source": "指数基金",
-      "target": "有效市场"
-    },
-    {
-      "source": "指数基金",
-      "target": "市场先生"
-    },
-    {
       "source": "收购",
       "target": "纺织业务"
     },
@@ -3237,34 +3121,6 @@
     {
       "source": "特许经营权",
       "target": "盖可保险"
-    },
-    {
-      "source": "现金流",
-      "target": "喜诗糖果"
-    },
-    {
-      "source": "现金流",
-      "target": "收购"
-    },
-    {
-      "source": "现金流",
-      "target": "纺织业务"
-    },
-    {
-      "source": "现金流",
-      "target": "内在价值"
-    },
-    {
-      "source": "现金流",
-      "target": "透视盈余"
-    },
-    {
-      "source": "现金流",
-      "target": "资本配置"
-    },
-    {
-      "source": "现金流",
-      "target": "留存收益"
     },
     {
       "source": "留存收益",
@@ -3853,22 +3709,6 @@
     {
       "source": "航空业",
       "target": "竞争优势"
-    },
-    {
-      "source": "薪酬与激励",
-      "target": "管理层"
-    },
-    {
-      "source": "薪酬与激励",
-      "target": "股东导向"
-    },
-    {
-      "source": "薪酬与激励",
-      "target": "公司治理"
-    },
-    {
-      "source": "薪酬与激励",
-      "target": "诚信"
     },
     {
       "source": "衍生品",
@@ -5463,30 +5303,6 @@
       "target": "留存收益"
     },
     {
-      "source": "好市多",
-      "target": "品牌"
-    },
-    {
-      "source": "好市多",
-      "target": "芒格"
-    },
-    {
-      "source": "好市多",
-      "target": "长期持有"
-    },
-    {
-      "source": "好市多",
-      "target": "商业模式"
-    },
-    {
-      "source": "好市多",
-      "target": "护城河"
-    },
-    {
-      "source": "好市多",
-      "target": "零售与消费"
-    },
-    {
       "source": "威利家居",
       "target": "收购"
     },
@@ -5525,38 +5341,6 @@
     {
       "source": "威瑞森通讯",
       "target": "康菲石油"
-    },
-    {
-      "source": "宝洁",
-      "target": "吉列"
-    },
-    {
-      "source": "宝洁",
-      "target": "金霸王"
-    },
-    {
-      "source": "宝洁",
-      "target": "品牌"
-    },
-    {
-      "source": "宝洁",
-      "target": "收购"
-    },
-    {
-      "source": "宝洁",
-      "target": "商业模式"
-    },
-    {
-      "source": "宝洁",
-      "target": "护城河"
-    },
-    {
-      "source": "宝洁",
-      "target": "资本配置"
-    },
-    {
-      "source": "宝洁",
-      "target": "特许经营权"
     },
     {
       "source": "富国银行",
@@ -6603,34 +6387,6 @@
       "target": "品牌"
     },
     {
-      "source": "迪士尼",
-      "target": "收购"
-    },
-    {
-      "source": "迪士尼",
-      "target": "复利"
-    },
-    {
-      "source": "迪士尼",
-      "target": "品牌"
-    },
-    {
-      "source": "迪士尼",
-      "target": "能力圈"
-    },
-    {
-      "source": "迪士尼",
-      "target": "商业模式"
-    },
-    {
-      "source": "迪士尼",
-      "target": "特许经营权"
-    },
-    {
-      "source": "迪士尼",
-      "target": "长期持有"
-    },
-    {
       "source": "通用再保险",
       "target": "收购"
     },
@@ -6725,38 +6481,6 @@
     {
       "source": "通用电气",
       "target": "护城河"
-    },
-    {
-      "source": "金霸王",
-      "target": "伯克希尔哈撒韦"
-    },
-    {
-      "source": "金霸王",
-      "target": "宝洁"
-    },
-    {
-      "source": "金霸王",
-      "target": "收购"
-    },
-    {
-      "source": "金霸王",
-      "target": "资本配置"
-    },
-    {
-      "source": "金霸王",
-      "target": "税收效率"
-    },
-    {
-      "source": "金霸王",
-      "target": "品牌"
-    },
-    {
-      "source": "金霸王",
-      "target": "护城河"
-    },
-    {
-      "source": "金霸王",
-      "target": "商业模式"
     },
     {
       "source": "雪佛龙",
@@ -7039,26 +6763,6 @@
       "target": "商业模式"
     },
     {
-      "source": "托尼·奈斯利",
-      "target": "管理层"
-    },
-    {
-      "source": "托尼·奈斯利",
-      "target": "收购"
-    },
-    {
-      "source": "托尼·奈斯利",
-      "target": "承保纪律"
-    },
-    {
-      "source": "托尼·奈斯利",
-      "target": "保险业"
-    },
-    {
-      "source": "托尼·奈斯利",
-      "target": "商业模式"
-    },
-    {
       "source": "托德·库姆斯",
       "target": "泰德·韦施勒"
     },
@@ -7089,58 +6793,6 @@
     {
       "source": "托德·库姆斯",
       "target": "保险业"
-    },
-    {
-      "source": "斯坦·利普西",
-      "target": "布法罗新闻报"
-    },
-    {
-      "source": "斯坦·利普西",
-      "target": "收购"
-    },
-    {
-      "source": "斯坦·利普西",
-      "target": "管理层"
-    },
-    {
-      "source": "杰克·林沃尔特",
-      "target": "保险业"
-    },
-    {
-      "source": "杰克·林沃尔特",
-      "target": "承保纪律"
-    },
-    {
-      "source": "杰克·林沃尔特",
-      "target": "收购"
-    },
-    {
-      "source": "杰克·林沃尔特",
-      "target": "管理层"
-    },
-    {
-      "source": "杰克·林沃尔特",
-      "target": "保险浮存金"
-    },
-    {
-      "source": "查克·哈金斯",
-      "target": "喜诗糖果"
-    },
-    {
-      "source": "查克·哈金斯",
-      "target": "收购"
-    },
-    {
-      "source": "查克·哈金斯",
-      "target": "品牌"
-    },
-    {
-      "source": "查克·哈金斯",
-      "target": "特许经营权"
-    },
-    {
-      "source": "查克·哈金斯",
-      "target": "管理层"
     },
     {
       "source": "格雷厄姆",
@@ -7203,34 +6855,6 @@
       "target": "资本配置"
     },
     {
-      "source": "比尔·斯奈德",
-      "target": "保险业"
-    },
-    {
-      "source": "比尔·斯奈德",
-      "target": "承保纪律"
-    },
-    {
-      "source": "比尔·斯奈德",
-      "target": "管理层"
-    },
-    {
-      "source": "汤姆·墨菲",
-      "target": "收购"
-    },
-    {
-      "source": "汤姆·墨菲",
-      "target": "迪士尼"
-    },
-    {
-      "source": "汤姆·墨菲",
-      "target": "资本配置"
-    },
-    {
-      "source": "汤姆·墨菲",
-      "target": "管理层"
-    },
-    {
       "source": "泰德·韦施勒",
       "target": "托德·库姆斯"
     },
@@ -7249,22 +6873,6 @@
     {
       "source": "泰德·韦施勒",
       "target": "芒格"
-    },
-    {
-      "source": "肯·蔡斯",
-      "target": "纺织业务"
-    },
-    {
-      "source": "肯·蔡斯",
-      "target": "收购"
-    },
-    {
-      "source": "肯·蔡斯",
-      "target": "管理层"
-    },
-    {
-      "source": "肯·蔡斯",
-      "target": "资本配置"
     },
     {
       "source": "芒格",
@@ -7297,38 +6905,6 @@
     {
       "source": "芒格",
       "target": "企业文化"
-    },
-    {
-      "source": "菲尔·利舍",
-      "target": "收购"
-    },
-    {
-      "source": "菲尔·利舍",
-      "target": "承保纪律"
-    },
-    {
-      "source": "菲尔·利舍",
-      "target": "保险业"
-    },
-    {
-      "source": "菲尔·利舍",
-      "target": "管理层"
-    },
-    {
-      "source": "路易·辛普森",
-      "target": "集中投资"
-    },
-    {
-      "source": "路易·辛普森",
-      "target": "长期持有"
-    },
-    {
-      "source": "路易·辛普森",
-      "target": "收购"
-    },
-    {
-      "source": "路易·辛普森",
-      "target": "管理层"
     },
     {
       "source": "阿吉特·贾恩",
