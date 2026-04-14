@@ -203,8 +203,8 @@ let graphContext = null
 onMounted(async () => {
   // Fetch data in parallel
   const [graphRes, wikiRes] = await Promise.all([
-    fetch('/data/graph.json').catch(() => null),
-    fetch('/data/wiki-index.json').catch(() => null),
+    fetch(`${import.meta.env.BASE_URL}data/graph.json`).catch(() => null),
+    fetch(`${import.meta.env.BASE_URL}data/wiki-index.json`).catch(() => null),
   ])
 
   if (wikiRes?.ok) {

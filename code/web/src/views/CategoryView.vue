@@ -118,7 +118,7 @@ async function loadCategory() {
   query.value = ''
 
   try {
-    const res = await fetch('/data/wiki-index.json')
+    const res = await fetch(`${import.meta.env.BASE_URL}data/wiki-index.json`)
     if (!res.ok) throw new Error('无法加载 wiki-index.json')
     allItems.value = await res.json()
   } catch (e) {

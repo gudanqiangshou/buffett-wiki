@@ -498,8 +498,8 @@ function clamp(v, lo, hi) {
 onMounted(async () => {
   try {
     const [idxRes, graphRes] = await Promise.all([
-      fetch('/data/wiki-index.json'),
-      fetch('/data/graph.json'),
+      fetch(`${import.meta.env.BASE_URL}data/wiki-index.json`),
+      fetch(`${import.meta.env.BASE_URL}data/graph.json`),
     ])
     wikiIndex.value = await idxRes.json()
     graphData.value = await graphRes.json()

@@ -156,7 +156,7 @@ const renderedRaw = computed(() => {
 // ── Source path → fetch URL mapping ──────────────────────────────────────────
 function sourceToUrl(sourcePath) {
   // e.g. "raw/interviews/xxx.md" → "/data/raw/interviews/xxx.md"
-  return `/data/${sourcePath}`
+  return `${import.meta.env.BASE_URL}data/${sourcePath}`
 }
 
 // ── Frontmatter parser ────────────────────────────────────────────────────────
@@ -196,12 +196,12 @@ async function loadPage() {
 
   try {
     // Load wiki index (for wikilink resolution)
-    const idxRes = await fetch('/data/wiki-index.json')
+    const idxRes = await fetch(`${import.meta.env.BASE_URL}data/wiki-index.json`)
     if (!idxRes.ok) throw new Error('无法加载 wiki-index.json')
     wikiIndex.value = await idxRes.json()
 
     // Load page markdown
-    const pageUrl = `/data/pages/${category}/${decodeURIComponent(slug)}.md`
+    const pageUrl = `${import.meta.env.BASE_URL}data/pages/${category}/${decodeURIComponent(slug)}.md`
     const pageRes = await fetch(pageUrl)
     if (!pageRes.ok) throw new Error(`页面未找到：${pageUrl}`)
     const raw = await pageRes.text()
