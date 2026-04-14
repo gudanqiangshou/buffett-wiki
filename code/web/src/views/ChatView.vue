@@ -100,11 +100,116 @@
 
 <script setup>
 import { ref, nextTick, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
 import MarkdownIt from 'markdown-it'
 
-const router = useRouter()
 const md = new MarkdownIt({ linkify: true, breaks: true })
+
+// ── API Config (embedded at build time) ─────────────────────
+const API_KEY = import.meta.env.VITE_API_KEY || ''
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://api.aicodewith.com'
+const API_MODEL = import.meta.env.VITE_API_MODEL || 'claude-sonnet-4-6'
+const ACCESS_PWD = import.meta.env.VITE_ACCESS_PASSWORD || 'tina2024'
+
+// ── Knowledge base data (loaded once) ───────────────────────
+const wikiIndex = ref([])
+const graphEdges = ref([])
+const neighbors = new Map()
+
+async function loadKnowledgeBase() {
+  try {
+    const base = import.meta.env.BASE_URL
+    const [idxRes, graphRes] = await Promise.all([
+      fetch(`${base}data/wiki-index.json`),
+      fetch(`${base}data/graph.json`),
+    ])
+    if (idxRes.ok) wikiIndex.value = await idxRes.json()
+    if (graphRes.ok) {
+      const g = await graphRes.json()
+      graphEdges.value = g.edges || []
+      for (const edge of graphEdges.value) {
+        if (!neighbors.has(edge.source)) neighbors.set(edge.source, new Set())
+        if (!neighbors.has(edge.target)) neighbors.set(edge.target, new Set())
+        neighbors.get(edge.source).add(edge.target)
+        neighbors.get(edge.target).add(edge.source)
+      }
+    }
+  } catch { /* ignore */ }
+}
+
+// ── Client-side retrieval ───────────────────────────────────
+function generateNgrams(text) {
+  const ngrams = new Set()
+  for (let n = 2; n <= 4; n++) {
+    for (let i = 0; i <= text.length - n; i++) {
+      ngrams.add(text.slice(i, i + n))
+    }
+  }
+  text.split(/\s+/).forEach(w => { if (w.length >= 2) ngrams.add(w.toLowerCase()) })
+  return ngrams
+}
+
+function retrievePages(question) {
+  const ngrams = generateNgrams(question)
+  const scores = []
+  for (const page of wikiIndex.value) {
+    let score = 0
+    const title = page.title || ''
+    const summary = page.summary || ''
+    const links = page.links || []
+    if (question.includes(title)) score += 50
+    if (title.includes(question)) score += 40
+    for (const ng of ngrams) {
+      if (title.includes(ng)) score += 8
+      if (summary.includes(ng)) score += 3
+    }
+    for (const link of links) {
+      if (question.includes(link)) score += 6
+    }
+    if (score > 0) scores.push({ page, score })
+  }
+  scores.sort((a, b) => b.score - a.score)
+  const top4 = scores.slice(0, 4)
+  const included = new Set(top4.map(h => h.page.title))
+
+  // Graph expansion
+  for (const hit of top4) {
+    const nbs = neighbors.get(hit.page.title)
+    if (!nbs) continue
+    for (const nb of nbs) {
+      if (included.has(nb)) continue
+      const nbPage = wikiIndex.value.find(p => p.title === nb)
+      if (!nbPage) continue
+      let s = 0
+      for (const ng of ngrams) {
+        if (nb.includes(ng)) s += 8
+        if ((nbPage.summary || '').includes(ng)) s += 3
+      }
+      if (s > 0 && top4.length < 6) {
+        top4.push({ page: nbPage, score: s })
+        included.add(nb)
+      }
+    }
+  }
+  return top4.map(h => h.page)
+}
+
+async function buildContext(pages) {
+  const base = import.meta.env.BASE_URL
+  const parts = []
+  for (const page of pages) {
+    let content = page.summary || ''
+    try {
+      const url = `${base}data/pages/${page.category}/${page.path.split('/').pop()}.md`
+      const res = await fetch(url)
+      if (res.ok) {
+        const raw = await res.text()
+        content = raw.slice(0, 3000)
+      }
+    } catch { /* use summary */ }
+    parts.push(`## ${page.title}\n\n${content}`)
+  }
+  return parts.join('\n\n---\n\n')
+}
 
 // ── Auth state ──────────────────────────────────────────────
 const authenticated = ref(false)
@@ -112,36 +217,24 @@ const passwordInput = ref('')
 const authError = ref('')
 const authLoading = ref(false)
 
-onMounted(() => {
+onMounted(async () => {
   if (sessionStorage.getItem('chat-auth') === 'true') {
     authenticated.value = true
   }
+  await loadKnowledgeBase()
 })
 
-async function submitPassword() {
+function submitPassword() {
   if (!passwordInput.value.trim()) return
   authLoading.value = true
   authError.value = ''
-  try {
-    const res = await fetch('/api/verify-password', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password: passwordInput.value })
-    })
-    const data = await res.json()
-    if (data.valid === true) {
-      sessionStorage.setItem('chat-auth', 'true')
-      sessionStorage.setItem('chat-password', passwordInput.value)
-      authenticated.value = true
-    } else {
-      authError.value = '密码错误，请重试'
-    }
-  } catch {
-    // Backend not running (e.g. GitHub Pages) — show hint
-    authError.value = 'AI 聊天需要在本地运行后端服务（node server.js），公网版暂不支持此功能'
-  } finally {
-    authLoading.value = false
+  if (passwordInput.value === ACCESS_PWD) {
+    sessionStorage.setItem('chat-auth', 'true')
+    authenticated.value = true
+  } else {
+    authError.value = '密码错误，请重试'
   }
+  authLoading.value = false
 }
 
 // ── Chat state ───────────────────────────────────────────────
@@ -185,33 +278,57 @@ function handleSend() {
 async function sendMessage(text) {
   streaming.value = true
 
-  // Add user message
   messages.value.push({ role: 'user', content: text })
-
-  // Add placeholder AI message
   const aiIdx = messages.value.length
   messages.value.push({ role: 'assistant', content: '', sources: [], loading: true })
-
   scrollToBottom()
 
-  // Build conversation history (last 10 messages before the placeholder)
-  const history = messages.value.slice(0, -1).slice(-10).map(m => ({
-    role: m.role,
-    content: m.content
-  }))
+  // Client-side retrieval
+  const matchedPages = retrievePages(text)
+  const context = await buildContext(matchedPages)
+
+  const systemPrompt = `你是"AI 巴菲特"，一个基于沃伦·巴菲特投资思想知识库的智能助手。
+
+你的知识来源于巴菲特的股东信、合伙人信、访谈和演讲的结构化摘要。请基于以下知识库内容回答用户的问题。
+
+回答要求：
+1. 以巴菲特的视角和风格回答，引用他的原话和理念
+2. 引用具体的信件、访谈或概念来支持你的回答
+3. 使用通俗易懂的语言，就像巴菲特在股东大会上解释问题一样
+4. 如果知识库中没有直接相关的内容，坦诚说明，不要编造
+5. 回答要有深度但不冗长，重点突出
+
+以下是与问题相关的知识库内容：
+
+${context}
+`
+
+  // Build history (last 10 messages)
+  const history = messages.value.slice(0, -1).slice(-10)
+    .filter(m => m.content)
+    .map(m => ({ role: m.role, content: m.content }))
 
   try {
-    const response = await fetch('/api/chat', {
+    const response = await fetch(`${API_BASE}/v1/messages`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Password': sessionStorage.getItem('chat-password') || ''
+        'x-api-key': API_KEY,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true',
       },
-      body: JSON.stringify({ message: text, history })
+      body: JSON.stringify({
+        model: API_MODEL,
+        max_tokens: 2048,
+        stream: true,
+        system: systemPrompt,
+        messages: [...history, { role: 'user', content: text }],
+      }),
     })
 
     if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`)
+      const errText = await response.text()
+      throw new Error(`API ${response.status}: ${errText.slice(0, 200)}`)
     }
 
     const reader = response.body.getReader()
@@ -224,41 +341,43 @@ async function sendMessage(text) {
 
       buffer += decoder.decode(value, { stream: true })
       const lines = buffer.split('\n')
-      buffer = lines.pop() // keep incomplete line
+      buffer = lines.pop()
 
       for (const line of lines) {
         if (!line.startsWith('data: ')) continue
-        let data
+        const data = line.slice(6).trim()
+        if (!data || data === '[DONE]') continue
         try {
-          data = JSON.parse(line.slice(6))
-        } catch {
-          continue
-        }
-
-        if (data.done) {
-          // Final message with sources
-          messages.value[aiIdx] = {
-            ...messages.value[aiIdx],
-            sources: data.sources || [],
-            loading: false
+          const parsed = JSON.parse(data)
+          // Anthropic streaming: content_block_delta
+          if (parsed.type === 'content_block_delta') {
+            const text = parsed.delta?.text || ''
+            if (text) {
+              messages.value[aiIdx] = {
+                ...messages.value[aiIdx],
+                content: messages.value[aiIdx].content + text,
+                loading: false,
+              }
+              scrollToBottom()
+            }
           }
-        } else if (data.text) {
-          // Streaming text chunk
-          messages.value[aiIdx] = {
-            ...messages.value[aiIdx],
-            content: messages.value[aiIdx].content + data.text,
-            loading: false
-          }
-        }
-        scrollToBottom()
+        } catch { /* skip */ }
       }
+    }
+
+    // Add sources
+    const sourceNames = matchedPages.map(p => p.title)
+    messages.value[aiIdx] = {
+      ...messages.value[aiIdx],
+      sources: sourceNames,
+      loading: false,
     }
   } catch (err) {
     messages.value[aiIdx] = {
       ...messages.value[aiIdx],
       content: `请求失败：${err.message}`,
       sources: [],
-      loading: false
+      loading: false,
     }
   } finally {
     streaming.value = false
