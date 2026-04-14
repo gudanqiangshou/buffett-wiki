@@ -427,6 +427,12 @@
       "category": "companies"
     },
     {
+      "id": "好市多",
+      "name": "好市多",
+      "type": "company",
+      "category": "companies"
+    },
+    {
       "id": "威利家居",
       "name": "威利家居",
       "type": "company",
@@ -435,6 +441,12 @@
     {
       "id": "威瑞森通讯",
       "name": "威瑞森通讯",
+      "type": "company",
+      "category": "companies"
+    },
+    {
+      "id": "宝洁",
+      "name": "宝洁",
       "type": "company",
       "category": "companies"
     },
@@ -601,6 +613,12 @@
       "category": "companies"
     },
     {
+      "id": "迪士尼",
+      "name": "迪士尼",
+      "type": "company",
+      "category": "companies"
+    },
+    {
       "id": "通用再保险",
       "name": "通用再保险",
       "type": "company",
@@ -615,6 +633,12 @@
     {
       "id": "通用电气",
       "name": "通用电气",
+      "type": "company",
+      "category": "companies"
+    },
+    {
+      "id": "金霸王",
+      "name": "金霸王",
       "type": "company",
       "category": "companies"
     },
@@ -5303,6 +5327,30 @@
       "target": "留存收益"
     },
     {
+      "source": "好市多",
+      "target": "品牌"
+    },
+    {
+      "source": "好市多",
+      "target": "芒格"
+    },
+    {
+      "source": "好市多",
+      "target": "长期持有"
+    },
+    {
+      "source": "好市多",
+      "target": "商业模式"
+    },
+    {
+      "source": "好市多",
+      "target": "护城河"
+    },
+    {
+      "source": "好市多",
+      "target": "零售与消费"
+    },
+    {
       "source": "威利家居",
       "target": "收购"
     },
@@ -5341,6 +5389,38 @@
     {
       "source": "威瑞森通讯",
       "target": "康菲石油"
+    },
+    {
+      "source": "宝洁",
+      "target": "吉列"
+    },
+    {
+      "source": "宝洁",
+      "target": "金霸王"
+    },
+    {
+      "source": "宝洁",
+      "target": "品牌"
+    },
+    {
+      "source": "宝洁",
+      "target": "收购"
+    },
+    {
+      "source": "宝洁",
+      "target": "商业模式"
+    },
+    {
+      "source": "宝洁",
+      "target": "护城河"
+    },
+    {
+      "source": "宝洁",
+      "target": "资本配置"
+    },
+    {
+      "source": "宝洁",
+      "target": "特许经营权"
     },
     {
       "source": "富国银行",
@@ -6387,6 +6467,34 @@
       "target": "品牌"
     },
     {
+      "source": "迪士尼",
+      "target": "收购"
+    },
+    {
+      "source": "迪士尼",
+      "target": "复利"
+    },
+    {
+      "source": "迪士尼",
+      "target": "品牌"
+    },
+    {
+      "source": "迪士尼",
+      "target": "能力圈"
+    },
+    {
+      "source": "迪士尼",
+      "target": "商业模式"
+    },
+    {
+      "source": "迪士尼",
+      "target": "特许经营权"
+    },
+    {
+      "source": "迪士尼",
+      "target": "长期持有"
+    },
+    {
       "source": "通用再保险",
       "target": "收购"
     },
@@ -6481,6 +6589,38 @@
     {
       "source": "通用电气",
       "target": "护城河"
+    },
+    {
+      "source": "金霸王",
+      "target": "伯克希尔哈撒韦"
+    },
+    {
+      "source": "金霸王",
+      "target": "宝洁"
+    },
+    {
+      "source": "金霸王",
+      "target": "收购"
+    },
+    {
+      "source": "金霸王",
+      "target": "资本配置"
+    },
+    {
+      "source": "金霸王",
+      "target": "税收效率"
+    },
+    {
+      "source": "金霸王",
+      "target": "品牌"
+    },
+    {
+      "source": "金霸王",
+      "target": "护城河"
+    },
+    {
+      "source": "金霸王",
+      "target": "商业模式"
     },
     {
       "source": "雪佛龙",
