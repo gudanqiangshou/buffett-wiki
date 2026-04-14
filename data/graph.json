@@ -139,6 +139,12 @@
       "category": "concepts"
     },
     {
+      "id": "指数基金",
+      "name": "指数基金",
+      "type": "concept",
+      "category": "concepts"
+    },
+    {
       "id": "收购",
       "name": "收购",
       "type": "concept",
@@ -159,6 +165,12 @@
     {
       "id": "特许经营权",
       "name": "特许经营权",
+      "type": "concept",
+      "category": "concepts"
+    },
+    {
+      "id": "现金流",
+      "name": "现金流",
       "type": "concept",
       "category": "concepts"
     },
@@ -225,6 +237,12 @@
     {
       "id": "航空业",
       "name": "航空业",
+      "type": "concept",
+      "category": "concepts"
+    },
+    {
+      "id": "薪酬与激励",
+      "name": "薪酬与激励",
       "type": "concept",
       "category": "concepts"
     },
@@ -2985,6 +3003,26 @@
       "target": "长期持有"
     },
     {
+      "source": "指数基金",
+      "target": "债券"
+    },
+    {
+      "source": "指数基金",
+      "target": "长期持有"
+    },
+    {
+      "source": "指数基金",
+      "target": "复利"
+    },
+    {
+      "source": "指数基金",
+      "target": "有效市场"
+    },
+    {
+      "source": "指数基金",
+      "target": "市场先生"
+    },
+    {
       "source": "收购",
       "target": "纺织业务"
     },
@@ -3199,6 +3237,34 @@
     {
       "source": "特许经营权",
       "target": "盖可保险"
+    },
+    {
+      "source": "现金流",
+      "target": "喜诗糖果"
+    },
+    {
+      "source": "现金流",
+      "target": "收购"
+    },
+    {
+      "source": "现金流",
+      "target": "纺织业务"
+    },
+    {
+      "source": "现金流",
+      "target": "内在价值"
+    },
+    {
+      "source": "现金流",
+      "target": "透视盈余"
+    },
+    {
+      "source": "现金流",
+      "target": "资本配置"
+    },
+    {
+      "source": "现金流",
+      "target": "留存收益"
     },
     {
       "source": "留存收益",
@@ -3787,6 +3853,22 @@
     {
       "source": "航空业",
       "target": "竞争优势"
+    },
+    {
+      "source": "薪酬与激励",
+      "target": "管理层"
+    },
+    {
+      "source": "薪酬与激励",
+      "target": "股东导向"
+    },
+    {
+      "source": "薪酬与激励",
+      "target": "公司治理"
+    },
+    {
+      "source": "薪酬与激励",
+      "target": "诚信"
     },
     {
       "source": "衍生品",
