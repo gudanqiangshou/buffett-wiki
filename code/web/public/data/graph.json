@@ -691,8 +691,32 @@
       "category": "people"
     },
     {
+      "id": "托尼·奈斯利",
+      "name": "托尼·奈斯利",
+      "type": "person",
+      "category": "people"
+    },
+    {
       "id": "托德·库姆斯",
       "name": "托德·库姆斯",
+      "type": "person",
+      "category": "people"
+    },
+    {
+      "id": "斯坦·利普西",
+      "name": "斯坦·利普西",
+      "type": "person",
+      "category": "people"
+    },
+    {
+      "id": "杰克·林沃尔特",
+      "name": "杰克·林沃尔特",
+      "type": "person",
+      "category": "people"
+    },
+    {
+      "id": "查克·哈金斯",
+      "name": "查克·哈金斯",
       "type": "person",
       "category": "people"
     },
@@ -709,14 +733,44 @@
       "category": "people"
     },
     {
+      "id": "比尔·斯奈德",
+      "name": "比尔·斯奈德",
+      "type": "person",
+      "category": "people"
+    },
+    {
+      "id": "汤姆·墨菲",
+      "name": "汤姆·墨菲",
+      "type": "person",
+      "category": "people"
+    },
+    {
       "id": "泰德·韦施勒",
       "name": "泰德·韦施勒",
       "type": "person",
       "category": "people"
     },
     {
+      "id": "肯·蔡斯",
+      "name": "肯·蔡斯",
+      "type": "person",
+      "category": "people"
+    },
+    {
       "id": "芒格",
       "name": "芒格",
+      "type": "person",
+      "category": "people"
+    },
+    {
+      "id": "菲尔·利舍",
+      "name": "菲尔·利舍",
+      "type": "person",
+      "category": "people"
+    },
+    {
+      "id": "路易·辛普森",
+      "name": "路易·辛普森",
       "type": "person",
       "category": "people"
     },
@@ -6903,6 +6957,26 @@
       "target": "商业模式"
     },
     {
+      "source": "托尼·奈斯利",
+      "target": "管理层"
+    },
+    {
+      "source": "托尼·奈斯利",
+      "target": "收购"
+    },
+    {
+      "source": "托尼·奈斯利",
+      "target": "承保纪律"
+    },
+    {
+      "source": "托尼·奈斯利",
+      "target": "保险业"
+    },
+    {
+      "source": "托尼·奈斯利",
+      "target": "商业模式"
+    },
+    {
       "source": "托德·库姆斯",
       "target": "泰德·韦施勒"
     },
@@ -6933,6 +7007,58 @@
     {
       "source": "托德·库姆斯",
       "target": "保险业"
+    },
+    {
+      "source": "斯坦·利普西",
+      "target": "布法罗新闻报"
+    },
+    {
+      "source": "斯坦·利普西",
+      "target": "收购"
+    },
+    {
+      "source": "斯坦·利普西",
+      "target": "管理层"
+    },
+    {
+      "source": "杰克·林沃尔特",
+      "target": "保险业"
+    },
+    {
+      "source": "杰克·林沃尔特",
+      "target": "承保纪律"
+    },
+    {
+      "source": "杰克·林沃尔特",
+      "target": "收购"
+    },
+    {
+      "source": "杰克·林沃尔特",
+      "target": "管理层"
+    },
+    {
+      "source": "杰克·林沃尔特",
+      "target": "保险浮存金"
+    },
+    {
+      "source": "查克·哈金斯",
+      "target": "喜诗糖果"
+    },
+    {
+      "source": "查克·哈金斯",
+      "target": "收购"
+    },
+    {
+      "source": "查克·哈金斯",
+      "target": "品牌"
+    },
+    {
+      "source": "查克·哈金斯",
+      "target": "特许经营权"
+    },
+    {
+      "source": "查克·哈金斯",
+      "target": "管理层"
     },
     {
       "source": "格雷厄姆",
@@ -6995,6 +7121,34 @@
       "target": "资本配置"
     },
     {
+      "source": "比尔·斯奈德",
+      "target": "保险业"
+    },
+    {
+      "source": "比尔·斯奈德",
+      "target": "承保纪律"
+    },
+    {
+      "source": "比尔·斯奈德",
+      "target": "管理层"
+    },
+    {
+      "source": "汤姆·墨菲",
+      "target": "收购"
+    },
+    {
+      "source": "汤姆·墨菲",
+      "target": "迪士尼"
+    },
+    {
+      "source": "汤姆·墨菲",
+      "target": "资本配置"
+    },
+    {
+      "source": "汤姆·墨菲",
+      "target": "管理层"
+    },
+    {
       "source": "泰德·韦施勒",
       "target": "托德·库姆斯"
     },
@@ -7013,6 +7167,22 @@
     {
       "source": "泰德·韦施勒",
       "target": "芒格"
+    },
+    {
+      "source": "肯·蔡斯",
+      "target": "纺织业务"
+    },
+    {
+      "source": "肯·蔡斯",
+      "target": "收购"
+    },
+    {
+      "source": "肯·蔡斯",
+      "target": "管理层"
+    },
+    {
+      "source": "肯·蔡斯",
+      "target": "资本配置"
     },
     {
       "source": "芒格",
@@ -7045,6 +7215,38 @@
     {
       "source": "芒格",
       "target": "企业文化"
+    },
+    {
+      "source": "菲尔·利舍",
+      "target": "收购"
+    },
+    {
+      "source": "菲尔·利舍",
+      "target": "承保纪律"
+    },
+    {
+      "source": "菲尔·利舍",
+      "target": "保险业"
+    },
+    {
+      "source": "菲尔·利舍",
+      "target": "管理层"
+    },
+    {
+      "source": "路易·辛普森",
+      "target": "集中投资"
+    },
+    {
+      "source": "路易·辛普森",
+      "target": "长期持有"
+    },
+    {
+      "source": "路易·辛普森",
+      "target": "收购"
+    },
+    {
+      "source": "路易·辛普森",
+      "target": "管理层"
     },
     {
       "source": "阿吉特·贾恩",
